@@ -1,15 +1,25 @@
-<div class="container">
-    <mat-card class="card">
-        <mat-calendar class="calendar"  [minDate]="minDate" [maxDate]="maxDate"  [(selected)]="selected"></mat-calendar>
-    </mat-card>
+<div class="container" >
+    <mat-card class="card" fxLayout="row" fxLayoutGap="20px" >
+        <mat-calendar fxFlexFill class="calendar" color="accent" appearance="fill" class="calendar"  [minDate]="minDate" [maxDate]="maxDate"  [(selected)]="selected" (selectedChange)="dateSelected($event)"></mat-calendar>
 
-    <mat-card class="card2">
-        <img mat-card-image src="../../assets/Img.png" alt="Information">
+        <div *ngIf="true"  class="pane">
+            <button mat-raised-button>{{selectedDay?selectedDay:'selected'}}</button>
+            <mat-list  fxLayout="row" >
+                <mat-list-item>Item 1</mat-list-item>
+                <mat-divider fxFlexFill ></mat-divider>
+                <mat-list-item>Item 2</mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item>Item 3</mat-list-item>
+              </mat-list>
+
+        </div>
+    </mat-card>
+    <mat-card class="card2" fxLayout>
+        <img mat-card-image style="height:auto;" src="../../assets/Img.png" alt="Information">
         <div class="example-button-row" >
         <button mat-raised-button style="padding:2%;" onclick="location.href='https://www.linkedin.com/in/awansari/';"><img style="height: 20px;" src="../../assets/58e91afdeb97430e81906504.png" alt="Information"></button>
         <button mat-raised-button (click)="openSnackBar(email, 'Copied!')" [cdkCopyToClipboard]="email">abdulwahedansari@gmail.com</button>
         <button mat-raised-button (click)="openSnackBar(contact, 'Copied!')" [cdkCopyToClipboard]="contact">+1 660 528 0042</button>
-        
         </div>
     </mat-card>
 </div>
